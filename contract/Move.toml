@@ -1,0 +1,16 @@
+[package]
+name = "meishi"
+version = "1.0.0"
+authors = []
+
+[addresses]
+meishi = "0x8e49e4e20e63b2481cb744b4481be224ec40e17d549387502da559e95e63ff57"
+
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/aptos-framework"
+
+[dev-dependencies]
