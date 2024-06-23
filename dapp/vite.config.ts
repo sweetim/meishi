@@ -6,7 +6,50 @@ import {
 import { defineConfig } from "vite"
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [ react() ],
+  plugins: [
+    react(),
+    VitePWA({
+      injectRegister: "auto",
+      registerType: "autoUpdate",
+      workbox: {
+        globPatterns: [ "**/*.{js,css,html,ico,png,svg}" ],
+      },
+      devOptions: {
+        enabled: true,
+      },
+      manifest: {
+        name: "meishi",
+        short_name: "meishi",
+        description: "decentralized business card exchange dapp",
+        theme_color: "#18181B",
+        scope: "/",
+        start_url: "/",
+        icons: [
+          {
+            "src": "pwa-64x64.png",
+            "sizes": "64x64",
+            "type": "image/png",
+          },
+          {
+            "src": "pwa-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+          },
+          {
+            "src": "pwa-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+          },
+          {
+            "src": "maskable-icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable",
+          },
+        ],
+      },
+    }),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -29,3 +72,23 @@ export default defineConfig({
     global: "globalThis",
   },
 })
+function VitePWA(
+  arg0: {
+    injectRegister: string
+    registerType: string
+    workbox: { globPatterns: string[] }
+    devOptions: { enabled: boolean }
+    manifest: {
+      name: string
+      short_name: string
+      description: string
+      theme_color: string
+      scope: string
+      start_url: string
+      icons:
+        ({ src: string; sizes: string; type: string } | { src: string; sizes: string; type: string; purpose: string })[]
+    }
+  },
+): import("vite").PluginOption {
+  throw new Error("Function not implemented.")
+}

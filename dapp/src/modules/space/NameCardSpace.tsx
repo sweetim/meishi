@@ -24,8 +24,8 @@ const NameCardSpace: FC<NameCardSpaceProps> = ({ data }) => {
         <h1 className="text-lg">{data.company_name}</h1>
       </Space>
       <div className="leading-4">
-        <h2 className="text-3xl">tim</h2>
-        <p className="text-lg text-slate-400">founder</p>
+        <h2 className="text-3xl">{data.name}</h2>
+        <p className="text-lg text-slate-400">{data.title}</p>
       </div>
       <Space className="mt-10 text-blue-300" direction="vertical" size="small">
         <Space>

@@ -121,7 +121,7 @@ const Home: FC = () => {
         </ConfigProvider>
       )}
       <div className="h-full"></div>
-      <div className="flex flex-row w-full justify-evenly mt-10">
+      <div className="flex flex-row w-full justify-evenly mt-10 pb-3">
         <FillButton onClick={qrCodeClickHandler}>
           <QrCode size={32} color="#ffebeb" weight="fill" />
           <h1>QR code</h1>
