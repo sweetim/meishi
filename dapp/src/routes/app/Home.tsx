@@ -57,18 +57,12 @@ const Home: FC = () => {
   async function shareClickHandler() {
     if (!nameCardMetadata) return
 
-    const res = await fetch(nameCardMetadata.logo_uri)
-    const blob = await res.blob()
-    const reader = new FileReader()
-    reader.readAsDataURL(blob)
-    reader.onloadend = () => {
-      navigator.share({
-        text: nameCardMetadata.name,
-        url: nameCardMetadata.company_uri,
-        title: nameCardMetadata.company_name,
-        // images: [ reader.result ],
-      })
-    }
+    await navigator.share({
+      text: nameCardMetadata.name,
+      url: `${window.location.origin}/app/contacts/${accountAddress}`,
+      title: nameCardMetadata.company_name,
+      // images: [ reader.result ],
+    })
   }
 
   const [ isModalOpen, setIsModalOpen ] = useState(false)
@@ -97,7 +91,7 @@ const Home: FC = () => {
       >
         <Space className="w-full py-10 mt-10" direction="vertical" align="center" size="large">
           <h2 className="text-xl font-bold">{userInfo?.name}</h2>
-          <QRCode size={256} value={`${window.location.href}/app/contacts/${accountAddress}`} />
+          <QRCode size={256} value={`${window.location.origin}/app/contacts/${accountAddress}`} />
           <p className="text-lg text-slate-400">scan this QR code to exchange contact</p>
         </Space>
       </Modal>
