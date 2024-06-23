@@ -135,12 +135,14 @@ const ContactId: FC = () => {
 
   return (
     <Layout className="h-full bg-zinc-900">
-      <Header className="!bg-zinc-900 !p-0">
-        <Space className="text-white px-3">
-          <img src="/logo.png" className="w-8"></img>
-          <h1>meishi</h1>
-        </Space>
-      </Header>
+      {!isConnected && (
+        <Header className="!bg-zinc-900 !p-0">
+          <Space className="text-white px-3">
+            <img src="/logo.png" className="w-8"></img>
+            <h1>meishi</h1>
+          </Space>
+        </Header>
+      )}
       <Content className="h-full overflow-auto">
         <div className="flex flex-col p-8 bg-zinc-900 justify-evenly align-middle h-full">
           {nameCardMetadata && (
