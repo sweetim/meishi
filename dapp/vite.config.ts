@@ -4,6 +4,7 @@ import {
   URL,
 } from "url"
 import { defineConfig } from "vite"
+import { VitePWA } from "vite-plugin-pwa"
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -72,23 +73,3 @@ export default defineConfig({
     global: "globalThis",
   },
 })
-function VitePWA(
-  arg0: {
-    injectRegister: string
-    registerType: string
-    workbox: { globPatterns: string[] }
-    devOptions: { enabled: boolean }
-    manifest: {
-      name: string
-      short_name: string
-      description: string
-      theme_color: string
-      scope: string
-      start_url: string
-      icons:
-        ({ src: string; sizes: string; type: string } | { src: string; sizes: string; type: string; purpose: string })[]
-    }
-  },
-): import("vite").PluginOption {
-  throw new Error("Function not implemented.")
-}
