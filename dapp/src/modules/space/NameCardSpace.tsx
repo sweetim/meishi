@@ -17,7 +17,7 @@ const NameCardSpace: FC<NameCardSpaceProps> = ({ data }) => {
     <div className="flex flex-col text-white py-3">
       <Space className="p-2" direction="vertical" align="center">
         <img
-          className=" w-28 h-28 rounded-full p-2"
+          className="w-28 h-28 rounded-full p-2"
           src={data.logo_uri}
           alt="company logo"
         />

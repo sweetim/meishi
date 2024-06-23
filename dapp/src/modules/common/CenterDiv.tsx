@@ -6,7 +6,7 @@ import {
 
 type CenterDivProps = {
   className?: string
-  children: ReactElement | ReactElement[]
+  children?: ReactElement | ReactElement[]
 }
 
 const CenterDiv: FC<CenterDivProps> = ({ children, className }) => {

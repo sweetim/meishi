@@ -20,6 +20,7 @@ import {
 } from "react-router-dom"
 import "./index.css"
 import ProtectedRoute from "./modules/common/ProtectedRoute.tsx"
+import AddContactId from "./routes/AddContactId.tsx"
 import Landing from "./routes/Landing.tsx"
 import ParentRoot from "./routes/ParentRoot.tsx"
 import Account from "./routes/app/Account.tsx"
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
+        path: "/:id",
+        element: <AddContactId />,
+      },
+      {
         path: "app",
         element: (
           <ProtectedRoute>
@@ -53,6 +58,10 @@ const router = createBrowserRouter([
           {
             path: "contacts",
             element: <Contacts />,
+          },
+          {
+            path: "contacts/:id",
+            element: <AddContactId />,
           },
           {
             path: "scan",

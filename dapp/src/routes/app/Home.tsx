@@ -97,14 +97,16 @@ const Home: FC = () => {
       >
         <Space className="w-full py-10 mt-10" direction="vertical" align="center" size="large">
           <h2 className="text-xl font-bold">{userInfo?.name}</h2>
-          <QRCode size={256} value={"hahahahaahhaha"} />
+          <QRCode size={256} value={`${window.location.href}/app/contacts/${accountAddress}`} />
           <p className="text-lg text-slate-400">scan this QR code to exchange contact</p>
         </Space>
       </Modal>
-      <Space direction="vertical" size="middle" align="center" className="text-slate-300 w-full pb-10">
+      {
+        /* <Space direction="vertical" size="middle" align="center" className="text-slate-300 w-full pb-10">
         <img className="w-14 h-14" src="/exchange.svg"></img>
         <p>touch to exchange</p>
-      </Space>
+      </Space> */
+      }
       {nameCardMetadata && (
         <ConfigProvider
           theme={{

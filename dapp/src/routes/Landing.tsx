@@ -11,24 +11,10 @@ import { useNavigate } from "react-router-dom"
 function Landing() {
   const {
     isConnected,
-    initModal,
     connect,
-    web3Auth,
   } = useWeb3Auth()
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    ;(async () => {
-      try {
-        if (web3Auth) {
-          await initModal()
-        }
-      } catch (error) {
-        console.error(error)
-      }
-    })()
-  }, [ web3Auth ])
 
   useEffect(() => {
     if (isConnected) {
