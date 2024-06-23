@@ -12,11 +12,12 @@ export type QrCodePayload = {
 
 export default function Scan() {
   const navigate = useNavigate()
-  const scanner = useRef<QrScanner>()
+  const scanner = useRef<QrScanner | null>()
   const videoEl = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     if (videoEl.current) {
+      console.log("start")
       scanner.current = new QrScanner(
         videoEl.current,
         onScanHandler,
@@ -29,9 +30,12 @@ export default function Scan() {
     }
 
     return () => {
-      if (videoEl.current) {
-        scanner.current?.stop()
-      }
+      if (!videoEl.current) return
+      if (!scanner.current) return
+
+      scanner.current.stop()
+      scanner.current.destroy()
+      scanner.current = null
     }
   }, [])
 

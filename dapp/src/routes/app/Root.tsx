@@ -9,7 +9,7 @@ import { Outlet } from "react-router-dom"
 export default function Root() {
   return (
     <Layout className="h-full bg-zinc-900">
-      <Content>
+      <Content className="h-full overflow-auto">
         <Outlet />
       </Content>
       <Footer className="!p-0">
