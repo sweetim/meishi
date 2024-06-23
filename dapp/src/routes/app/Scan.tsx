@@ -35,8 +35,9 @@ export default function Scan() {
   }, [])
 
   async function onScanHandler(result: QrScanner.ScanResult) {
-    const { data: id } = result
-
+    const { data } = result
+    const url = new URL(data)
+    const id = url.pathname.split("/")[3]
     navigate(`/app/contacts/${id}`)
   }
 
