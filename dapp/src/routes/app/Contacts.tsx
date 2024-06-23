@@ -56,6 +56,7 @@ const Contacts: FC = () => {
 
       console.log(output)
       setConnectionNameCardMetadata(output)
+      setQueryData(output)
     })()
   }, [ accountAddress ])
 
@@ -108,7 +109,7 @@ const Contacts: FC = () => {
                 description={
                   <Space direction="vertical">
                     <p>{item.title}</p>
-                    <Tag color="default">{format(new Date(item.timestamp_us), "MM/dd/yyyy")}</Tag>
+                    <Tag color="default">{format(new Date(item.timestamp_us / 1_000_000), "MM/dd/yyyy")}</Tag>
                   </Space>
                 }
               />
