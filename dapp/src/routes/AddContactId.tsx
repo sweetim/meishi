@@ -97,7 +97,7 @@ const ContactId: FC = () => {
   }, [ id ])
 
   const isUserConnectionNotExist = connectionNameCardMetadata
-        .filter(item => item.id === id).length === 0 || true
+    .filter(item => item.id === id).length === 0
 
   async function addContactClickHandler() {
     if (!isConnected) {

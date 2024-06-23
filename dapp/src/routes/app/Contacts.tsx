@@ -97,7 +97,7 @@ const Contacts: FC = () => {
               extra={
                 <img
                   className="max-h-16"
-                  width={128}
+                  width={100}
                   height={75}
                   alt="logo"
                   src={item.card_uri}
