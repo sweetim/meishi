@@ -7,30 +7,29 @@ import { useNavigate } from "react-router-dom"
 
 export default function Scan() {
   const navigate = useNavigate()
-  const scanner = useRef<QrScanner | null>()
+  const qrScanner = useRef<QrScanner | null>()
   const videoEl = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (videoEl.current) {
-      console.log("start")
-      scanner.current = new QrScanner(
-        videoEl.current,
-        onScanHandler,
-        {
-          highlightCodeOutline: true,
-          highlightScanRegion: true,
-        },
-      )
-      scanner.current.start()
-    }
+    if (!videoEl.current) return
+
+    qrScanner.current = new QrScanner(
+      videoEl.current,
+      onScanHandler,
+      {
+        highlightCodeOutline: true,
+        highlightScanRegion: true,
+      },
+    )
+
+    qrScanner.current.start()
 
     return () => {
-      if (!videoEl.current) return
-      if (!scanner.current) return
+      if (!qrScanner.current) return
 
-      scanner.current.stop()
-      scanner.current.destroy()
-      scanner.current = null
+      qrScanner.current.stop()
+      qrScanner.current.destroy()
+      // qrScanner.current = null
     }
   }, [])
 
