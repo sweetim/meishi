@@ -27,6 +27,7 @@ export default function Scan() {
     return () => {
       if (!qrScanner.current) return
 
+      qrScanner.current.pause()
       qrScanner.current.stop()
       qrScanner.current.destroy()
       // qrScanner.current = null

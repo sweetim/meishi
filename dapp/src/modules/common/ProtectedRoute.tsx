@@ -11,7 +11,7 @@ type ProtectedRouteProps = {
 
 const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
   const { isConnected } = useWeb3Auth()
-  console.log(isConnected)
+
   if (!isConnected) {
     return <Navigate to="/" />
   }

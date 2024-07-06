@@ -1,4 +1,3 @@
-"use client"
 import countries from "@/data/globe.json"
 import { OrbitControls } from "@react-three/drei"
 import {
@@ -20,6 +19,7 @@ import {
   Vector3,
 } from "three"
 import ThreeGlobe from "three-globe"
+
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>
@@ -261,6 +261,7 @@ export function World(props: WorldProps) {
   const { globeConfig } = props
   const scene = new Scene()
   scene.fog = new Fog(0xffffff, 400, 2000)
+
   return (
     <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />

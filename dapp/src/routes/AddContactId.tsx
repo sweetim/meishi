@@ -152,13 +152,17 @@ const ContactId: FC = () => {
                 algorithm: theme.defaultAlgorithm,
               }}
             >
-              <BackgroundGradient className="rounded-3xl w-full p-6 bg-zinc-900">
-                <Carousel className="pb-3">
-                  <NameCardSpace data={nameCardMetadata} />
-                  <LinkTreeSpace data={nameCardMetadata} />
-                  <NameCardImageSpace data={nameCardMetadata} />
-                </Carousel>
-              </BackgroundGradient>
+              <div className="flex flex-row justify-center align-middle w-full">
+                <div className="max-w-sm">
+                  <BackgroundGradient className="rounded-3xl w-full p-6 bg-zinc-900">
+                    <Carousel className="pb-3">
+                      <NameCardSpace data={nameCardMetadata} />
+                      <LinkTreeSpace data={nameCardMetadata} />
+                      <NameCardImageSpace data={nameCardMetadata} />
+                    </Carousel>
+                  </BackgroundGradient>
+                </div>
+              </div>
             </ConfigProvider>
           )}
           {isUserConnectionNotExist && (

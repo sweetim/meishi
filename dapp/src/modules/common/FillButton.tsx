@@ -14,9 +14,14 @@ const FillButton: FC<FillButtonProps> = ({ children, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer rounded-3xl p-5 min-w-32 hover:font-bold border-none text-white bg-zinc-800 hover:bg-zinc-600"
+      className="cursor-pointer rounded-3xl p-5 min-w-32 border-none text-white bg-zinc-800 hover:bg-zinc-600"
     >
-      <Space direction="vertical" size="large" align="center" className="w-full">
+      <Space
+        direction="vertical"
+        size="middle"
+        align="center"
+        className="w-full"
+      >
         {children}
       </Space>
     </div>

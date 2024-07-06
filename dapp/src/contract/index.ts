@@ -16,25 +16,43 @@ export type NameCardConnection = {
   timestamp_us: number
 }
 
-export type NameCardMetadata = {
-  id: string
-  timestamp_us: number
+export type NameCardMetadata =
+  & {
+    id: string
+    timestamp_us: number
+  }
+  & NameCardDescription
+  & NameCardLinkTree
+
+export type NameCardDescription = {
   name: string
   title: string
   email: string
-  address: string
-  address_uri: string
   company_name: string
   company_uri: string
+  company_address: string
+  company_address_uri: string
   telephone: string
   logo_uri: string
   card_uri: string
+}
+
+export type NameCardLinkTree = {
   links: LinkTree[]
 }
 
 export type LinkTree = {
   title: string
   uri: string
+}
+
+export type RegisterNameCardArgs =
+  & NameCardDescription
+  & RegisterNameCardLinkTreeArgs
+
+export type RegisterNameCardLinkTreeArgs = {
+  link_tree_title: string[]
+  link_tree_uri: string[]
 }
 
 export const MODULE_FN: Record<string, `${string}::${string}::${string}`> = {

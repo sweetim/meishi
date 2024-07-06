@@ -44,8 +44,8 @@ const NameCardSpace: FC<NameCardSpaceProps> = ({ data }) => {
         </Space>
         <Space>
           <Building size={24} color="#fff" weight="fill" />
-          <a href={data.address_uri} target="_blank">
-            <p>{data.address}</p>
+          <a href={data.company_address_uri} target="_blank">
+            <p>{data.company_address}</p>
           </a>
         </Space>
       </Space>

@@ -10,9 +10,7 @@ import {
   Input,
   List,
   Space,
-  Tag,
 } from "antd"
-import { format } from "date-fns"
 import {
   ChangeEvent,
   FC,
@@ -54,7 +52,6 @@ const Contacts: FC = () => {
         return metadata
       }))
 
-      console.log(output)
       setConnectionNameCardMetadata(output)
       setQueryData(output)
     })()
@@ -71,8 +68,8 @@ const Contacts: FC = () => {
     }
 
     setQueryData(connectionNameCardMetadata.filter(item =>
-      item.name.includes(query)
-      || item.company_name.includes(query)
+      item.name.toLowerCase().includes(query)
+      || item.company_name.toLowerCase().includes(query)
     ))
   }
 
@@ -105,11 +102,12 @@ const Contacts: FC = () => {
               }
             >
               <List.Item.Meta
-                title={item.company_name}
+                title={item.name}
                 description={
-                  <Space direction="vertical">
+                  <Space direction="vertical" size="small">
+                    <p>{item.company_name}</p>
                     <p>{item.title}</p>
-                    <Tag color="default">{format(new Date(item.timestamp_us / 1_000_000), "MM/dd/yyyy")}</Tag>
+                    {/* <Tag color="default">{format(new Date(item.timestamp_us / 1_000_000), "MM/dd/yyyy")}</Tag> */}
                   </Space>
                 }
               />

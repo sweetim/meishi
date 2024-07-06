@@ -18,17 +18,24 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom"
+
 import "./index.css"
+
 import ProtectedRoute from "./modules/common/ProtectedRoute.tsx"
 import AddContactId from "./routes/AddContactId.tsx"
 import Landing from "./routes/Landing.tsx"
 import ParentRoot from "./routes/ParentRoot.tsx"
-import Account from "./routes/app/Account.tsx"
+import AppRoot from "./routes/app/AppRoot.tsx"
 import Contacts from "./routes/app/Contacts.tsx"
 import Home from "./routes/app/Home.tsx"
-import Root from "./routes/app/Root.tsx"
 import Scan from "./routes/app/Scan.tsx"
 import Wallet from "./routes/app/Wallet.tsx"
+import Profile from "./routes/app/settings/Profile.tsx"
+import SettingsHome from "./routes/app/settings/SettingsHome.tsx"
+import SettingsRoot from "./routes/app/settings/SettingsRoot.tsx"
+import OrganizationCreate from "./routes/app/settings/organization/OrganizationCreate.tsx"
+import OrganizationHome from "./routes/app/settings/organization/OrganizationHome.tsx"
+import OrganizationRoot from "./routes/app/settings/organization/OrganizationRoot.tsx"
 
 const router = createBrowserRouter([
   {
@@ -47,7 +54,7 @@ const router = createBrowserRouter([
         path: "app",
         element: (
           <ProtectedRoute>
-            <Root />
+            <AppRoot />
           </ProtectedRoute>
         ),
         children: [
@@ -72,8 +79,32 @@ const router = createBrowserRouter([
             element: <Wallet />,
           },
           {
-            path: "account",
-            element: <Account />,
+            path: "settings",
+            element: <SettingsRoot />,
+            children: [
+              {
+                path: "",
+                element: <SettingsHome />,
+              },
+              {
+                path: "profile",
+                element: <Profile />,
+              },
+              {
+                path: "organization",
+                element: <OrganizationRoot />,
+                children: [
+                  {
+                    path: "",
+                    element: <OrganizationHome />,
+                  },
+                  {
+                    path: "create",
+                    element: <OrganizationCreate />,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },

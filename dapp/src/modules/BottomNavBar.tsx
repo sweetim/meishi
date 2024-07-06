@@ -49,12 +49,12 @@ const BottomNavBar: FC = () => {
           </span>
         </Link>
         <Link
-          to="/app/account"
+          to="/app/settings"
           className="inline-flex flex-col items-center justify-center px-5 hover:bg-zinc-900 group"
         >
           <UserCircleGear size={32} color="#6b7280" weight="fill" className="group-hover:fill-[#ffebeb]" />
           <span className="text-sm text-gray-500 group-hover:text-white">
-            Account
+            Settings
           </span>
         </Link>
       </div>

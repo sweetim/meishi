@@ -1,7 +1,10 @@
 import { GLOBE_ARCS } from "@/data/arcs"
 import FillButton from "@/modules/common/FillButton"
 import { World } from "@/modules/ui"
-import { Swap } from "@phosphor-icons/react"
+import {
+  Swap,
+  UsersThree,
+} from "@phosphor-icons/react"
 import { useWeb3Auth } from "@web3auth/modal-react-hooks"
 import { Space } from "antd"
 import { motion } from "framer-motion"
@@ -28,7 +31,7 @@ function Landing() {
   }
 
   const globeConfig = {
-    pointSize: 4,
+    pointSize: 10,
     globeColor: "#062056",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
@@ -80,7 +83,7 @@ function Landing() {
                 decentralized business card exchange
               </p>
               <p>
-                reimagined how virtual business card to showcase your identity
+                using your wallet address as unique ID for virtual business card
               </p>
             </div>
           </motion.div>
@@ -89,11 +92,17 @@ function Landing() {
             <World data={GLOBE_ARCS} globeConfig={globeConfig} />;
           </div>
 
-          <div className="flex flex-row w-full justify-evenly mt-10 absolute bottom-10">
-            <FillButton onClick={startClickHandler}>
-              <Swap size={32} color="#ffebeb" weight="fill" />
-              <h2>start exchange</h2>
-            </FillButton>
+          <div className="flex flex-row w-full justify-evenly mt-10 absolute bottom-5">
+            <Space size="middle">
+              <FillButton onClick={startClickHandler}>
+                <Swap size={32} color="#ffebeb" weight="fill" />
+                <h2>exchange</h2>
+              </FillButton>
+              <FillButton onClick={startClickHandler}>
+                <UsersThree size={32} color="#ffebeb" weight="fill" />
+                <h2>organization</h2>
+              </FillButton>
+            </Space>
           </div>
         </div>
       </div>

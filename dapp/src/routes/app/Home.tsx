@@ -80,7 +80,7 @@ const Home: FC = () => {
   }
 
   return (
-    <div className="flex flex-col p-8 bg-zinc-900 h-full">
+    <div className="flex flex-col p-5 bg-zinc-900 h-full">
       <Modal
         className="p-5"
         okButtonProps={{ hidden: true }}
@@ -107,28 +107,34 @@ const Home: FC = () => {
             algorithm: theme.defaultAlgorithm,
           }}
         >
-          <BackgroundGradient className="rounded-3xl w-full p-6 bg-zinc-900">
-            <Carousel className="pb-3">
-              <NameCardSpace data={nameCardMetadata} />
-              <LinkTreeSpace data={nameCardMetadata} />
-              <NameCardImageSpace data={nameCardMetadata} />
-            </Carousel>
-          </BackgroundGradient>
+          <div className="flex flex-row justify-center align-middle w-full">
+            <div className="max-w-sm">
+              <BackgroundGradient className="rounded-3xl w-full p-6 bg-zinc-900">
+                <Carousel className="pb-3">
+                  <NameCardSpace data={nameCardMetadata} />
+                  <LinkTreeSpace data={nameCardMetadata} />
+                  <NameCardImageSpace data={nameCardMetadata} />
+                </Carousel>
+              </BackgroundGradient>
+            </div>
+          </div>
         </ConfigProvider>
       )}
       <div className="h-full"></div>
-      <div className="flex flex-row w-full justify-evenly mt-10 pb-3">
-        <FillButton onClick={qrCodeClickHandler}>
-          <QrCode size={32} color="#ffebeb" weight="fill" />
-          <h1>QR code</h1>
-        </FillButton>
-        <FillButton onClick={shareClickHandler}>
-          <Space direction="vertical" size="large" align="center" className="w-full">
-            <Share size={32} color="#ffebeb" weight="fill" />
-            <h1>Share</h1>
-          </Space>
-        </FillButton>
-      </div>
+      <Space direction="vertical" align="center">
+        <Space align="center" size="middle">
+          <FillButton onClick={qrCodeClickHandler}>
+            <QrCode size={32} color="#ffebeb" weight="fill" />
+            <h1>QR code</h1>
+          </FillButton>
+          <FillButton onClick={shareClickHandler}>
+            <Space direction="vertical" size="large" align="center" className="w-full">
+              <Share size={32} color="#ffebeb" weight="fill" />
+              <h1>Share</h1>
+            </Space>
+          </FillButton>
+        </Space>
+      </Space>
     </div>
   )
 }
