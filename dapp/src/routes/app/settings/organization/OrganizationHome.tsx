@@ -15,10 +15,10 @@ import {
 } from "react"
 import { Link } from "react-router-dom"
 
-type Organization = {
-  name: string
-  uri: string
-}
+// type Organization = {
+//   name: string
+//   uri: string
+// }
 
 type OrganizationMember = {
   address: string
@@ -42,7 +42,7 @@ const organizationMembers: OrganizationMember[] = [
 const OrganizationHome: FC = () => {
   const [ openAddNewMemberModal, setOpenAddNewMemberModal ] = useState(0)
 
-  async function deleteMemberClickHandler(item: OrganizationMember) {
+  async function deleteMemberClickHandler(_item: OrganizationMember) {
   }
 
   function addNewMemberClickHandler() {
