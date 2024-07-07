@@ -28,7 +28,7 @@ contract Organization {
     }
 
     event OrganizationCreated(
-        address indexed owner,
+        address indexed id,
         string name);
 
     event OrganizationMemberUpdate(
